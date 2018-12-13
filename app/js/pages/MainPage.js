@@ -12,7 +12,7 @@ import {
 import TabNavigator from 'react-native-tab-navigator';
 import HomeScreen from './HomePage'
 import Message from './HomePage'
-import Mine from './HomePage'
+import Mine from './MinePage'
 import TaskPage from './HomePage'
 import FontIcon from '../components/FontIcon'
 import SafeAreaViewPlus from '../components/SafeAreaViewPlus'

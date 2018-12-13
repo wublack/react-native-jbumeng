@@ -9,6 +9,8 @@ import {
     StatusBar,
     TextInput
 } from 'react-native'
+import { connect } from 'react-redux'
+import * as loginAction from '../actions/loginAction'
 import FetchUtils, { LoginUrl } from '../utils/FetchUtils'
 import LocalSaveDao, { LOCAL_SAVE_KEYS } from '../dao/LocalSaveDao'
 import PopupDialog, {
@@ -21,7 +23,7 @@ const NAV_BAR_HEIGHT_IOS = 44;
 const NAV_BAR_HEIGHT_ANDROID = 50;
 import SplashScreen from 'react-native-splash-screen'
 
-export default class LoginPage extends React.Component {
+class LoginPage extends React.Component {
     constructor(props) {
         super(props)
         this.fetchUtils = new FetchUtils()
@@ -31,6 +33,14 @@ export default class LoginPage extends React.Component {
             userPwd: '',
             errorInfo: ''
         }
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        // console.log(JSON.stringify(nextState))
+        if (nextProps.status === '登录成功' && nextProps.isSuccess) {
+            return false
+        }
+        return true
     }
 
     componentWillMount() {
@@ -101,12 +111,13 @@ export default class LoginPage extends React.Component {
     }
 
     render() {
+        const { login } = this.props
         return (
             <View style={{ backgroundColor: 'white', flex: 1 }}>
                 <View >
                     <StatusBar barStyle='dark-content'
                         hidden={false} backgroundColor="white" />
-                   <View style={[styles.inputContainer, { marginTop: 135 }]}>
+                    <View style={[styles.inputContainer, { marginTop: 135 }]}>
                         <Image style={styles.inputImg} source={require('../../img/login_name.png')}></Image>
                         <TextInput autoCapitalize={'none'} value={this.state.userName} maxLength={30} style={styles.inputStyle} onChangeText={(text) => this.setState({
                             userName: text
@@ -121,7 +132,10 @@ export default class LoginPage extends React.Component {
                     <TouchableOpacity
                         activeOpacity={0.8}
                         onPress={() => {
-                            this.props.navigation.navigate('MainPage', { token: '传过去的值' })
+                            let data = { "FUserName": this.state.userName, "FAction": "APP", "FVersion": "1.0.0", "FPassword": md5.hex_md5(this.state.userPwd) }
+                            console.log(JSON.stringify(data))
+                            login(data)
+                            // this.props.navigation.navigate('MainPage', { token: '传过去的值' })
                         }}
                         style={[styles.inputContainer, { marginTop: 35, backgroundColor: '#0EAFF8', justifyContent: 'center' }]}>
                         <Text style={styles.loginText}>登录</Text>
@@ -234,3 +248,13 @@ const styles = StyleSheet.create({
         width: 60
     }
 })
+export default connect(
+    (state) => ({
+        status: state.loginIn.status,
+        isSuccess: state.loginIn.isSuccess,
+        user: state.loginIn.user,
+    }),
+    (dispatch) => ({
+        login: () => dispatch(loginAction.login()),
+    })
+)(LoginPage)
