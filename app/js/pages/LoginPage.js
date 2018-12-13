@@ -38,6 +38,7 @@ class LoginPage extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
         // console.log(JSON.stringify(nextState))
         if (nextProps.status === '登录成功' && nextProps.isSuccess) {
+            this.props.navigation.navigate('MainPage', { token: '传过去的值' })
             return false
         }
         return true
@@ -135,7 +136,7 @@ class LoginPage extends React.Component {
                             let data = { "FUserName": this.state.userName, "FAction": "APP", "FVersion": "1.0.0", "FPassword": md5.hex_md5(this.state.userPwd) }
                             console.log(JSON.stringify(data))
                             login(data)
-                            // this.props.navigation.navigate('MainPage', { token: '传过去的值' })
+
                         }}
                         style={[styles.inputContainer, { marginTop: 35, backgroundColor: '#0EAFF8', justifyContent: 'center' }]}>
                         <Text style={styles.loginText}>登录</Text>
