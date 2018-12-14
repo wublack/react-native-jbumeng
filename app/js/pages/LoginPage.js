@@ -256,6 +256,6 @@ export default connect(
         user: state.loginIn.user,
     }),
     (dispatch) => ({
-        login: () => dispatch(loginAction.login()),
+        login: (data) => dispatch(loginAction.login(data)),
     })
 )(LoginPage)
