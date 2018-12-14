@@ -50,8 +50,8 @@
 		904B4099061A405D8339E755 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93B5CD19B80A4235A622AD2A /* FontAwesome5_Brands.ttf */; };
 		92DF4D0F69B74CE8AF69F271 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C4F29011B8C4D0EA43916EE /* Zocial.ttf */; };
 		9CA42210C7104F9D88430B5C /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD49D1B50E497F89C39A0C /* Octicons.ttf */; };
-		A4545D066974483FBB509AEB /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A463E154C84B7F86D889A7 /* libSplashScreen.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		C213A7D121C34A12006CB04E /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D1E10E21C26EF200D21824 /* libSplashScreen.a */; };
 		C2D1E11021C26F1000D21824 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D1E10F21C26F1000D21824 /* iconfont.ttf */; };
 		C6A86476C08042C7ABD73C85 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4BC337D168544EDACF9D939 /* FontAwesome5_Regular.ttf */; };
 		DF45E266C7A04D85A7850E15 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5AFF4A630453DA9171341 /* libBVLinearGradient.a */; };
@@ -436,6 +436,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C213A7D121C34A12006CB04E /* libSplashScreen.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -448,7 +449,6 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				A4545D066974483FBB509AEB /* libSplashScreen.a in Frameworks */,
 				00FF2AD931864F8C84CEBC7A /* libRNVectorIcons.a in Frameworks */,
 				DF45E266C7A04D85A7850E15 /* libBVLinearGradient.a in Frameworks */,
 			);
