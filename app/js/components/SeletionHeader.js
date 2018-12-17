@@ -8,17 +8,17 @@ export default class SeletionHeader extends React.Component {
     }
 
     static propTypes = {
-        containerBgc: ViewPropTypes.style,
+        ...ViewPropTypes,
+        containerBgc: PropTypes.style,
         leftBgSource: PropTypes.object,
         seletionTitle: PropTypes.string,
-        leftTitleStyle: ViewPropTypes.style,
-        leftImgStyle: ViewPropTypes.style,
-        rightImgStyle: ViewPropTypes.style,
+        leftTitleStyle: PropTypes.style,
+        leftImgStyle: PropTypes.style,
+        rightImgStyle: PropTypes.style,
         rightBgSource: PropTypes.object,
         rightComponent: PropTypes.element,
         leftTotalNum: PropTypes.number,
         leftComponent: PropTypes.element,
-        ...View.propTypes
     }
 
     render() {

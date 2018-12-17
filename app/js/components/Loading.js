@@ -1,6 +1,6 @@
 'use strict'
 import React from 'react';
-import { StyleSheet, Dimensions, Text, View, Modal, ActivityIndicator } from 'react-native';
+import { StyleSheet, Dimensions, Text, View, Modal, ActivityIndicator, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types'
 
 
@@ -35,6 +35,7 @@ EasyLoading.map = {};
 export class Loading extends React.Component {
 
     static propTypes = {
+        ...ViewPropTypes,
         type: PropTypes.string,
         color: PropTypes.string,
         textStyle: PropTypes.any,

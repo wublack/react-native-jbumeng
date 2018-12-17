@@ -10,7 +10,8 @@ export default class FontIcon extends React.Component {
     }
 
     static propTypes = {
-        fontStyle: ViewPropTypes.style,
+        ...ViewPropTypes,
+        // fontStyle: PropTypes.style,
         fontSource: PropTypes.string
     }
 

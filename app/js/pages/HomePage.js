@@ -3,10 +3,12 @@ import {
     View,
     Text,
     StyleSheet,
-    Dimensions
+    Dimensions,
+    TouchableOpacity
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { screenW } from "../utils/ScreenUtil";
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view'
 
 export default class HomePage extends React.Component {
     constructor(props) {
@@ -15,21 +17,39 @@ export default class HomePage extends React.Component {
 
         }
     }
-    render() {
-        const bottomColor = `rgba(0, 0, 0, ${0})`
-        const maskColor = `rgba(0, 0, 0, ${0.5})`
-        return (
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
-                <Text>sdfsd</Text>
-                <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} locations={[0, 0.75]} style={styles.linearGradient}>
-                    <Text style={styles.buttonText}>
-                        Sign in with Facebook
-                    </Text>
-                </LinearGradient>
 
+    renderTab(name, page, isTabActive, onPressHandler, onLayoutHandler) {
+        return (<TouchableOpacity
+            key={`${name}_${page}`}
+            activeOpacity={0.7}
+            onPress={() => onPressHandler(page)}
+            onLayout={onLayoutHandler}
+            style={{ width: 100, }}
+            underlayColor="#fff"
+        >
+            <Text style={{ color: '#333333', fontSize: 18 }}>{name}</Text>
+        </TouchableOpacity>)
+    }
+
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+                <ScrollableTabView
+                    initialPage={0}
+                    style={{ backgroundColor: 'white', flex: 1, borderWidth: 0, borderColor: '#fff' }}
+                    tabBarUnderlineStyle={{ height: 0, color: '#fff', borderBottomWidth: 0 }}
+                    renderTabBar={() =>
+                        <DefaultTabBar
+                            style={{ borderWidth: 0, borderColor: '#fff', width: 200 }}
+                            renderTab={this.renderTab} />}>
+                    <Text {...this.props} style={{ width: screenW }} tabLabel="告警" >高级</Text>
+                    <Text {...this.props} style={{ width: screenW }} tabLabel="通知" >通知</Text>
+                </ScrollableTabView>
             </View>
+
         )
     }
+
 }
 const styles = StyleSheet.create({
     linearGradient: {
