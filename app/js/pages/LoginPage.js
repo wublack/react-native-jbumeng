@@ -119,8 +119,8 @@ class LoginPage extends React.Component {
     render() {
         const { login } = this.props
         return (
-            <SafeAreaViewPlus style={{ backgroundColor: 'white', flex: 1 }}>
-                <ScrollView >
+            <SafeAreaViewPlus topColor={'#52AFEA'} >
+                <ScrollView style={{ backgroundColor: 'white' }}>
                     <StatusBar barStyle='dark-content'
                         translucent={true}
                         hidden={false} backgroundColor="transparent" />
@@ -144,17 +144,21 @@ class LoginPage extends React.Component {
                                     <Text style={{ color: '#929FAD', fontSize: 12 }}>还没有账号</Text>
                                     <TouchableOpacity
                                         activeOpacity={0.8}
-                                        onPress={()=>{
+                                        onPress={() => {
                                             this.props.navigation.navigate('RegisterPage')
                                         }}>
                                         <Text style={{ color: '#387BE6', fontSize: 12, marginLeft: 3 }}>去注册</Text>
                                     </TouchableOpacity>
                                 </View>
-                                <Text style={{ color: '#929FAD', fontSize: 12 }}>忘记密码？</Text>
+                                <TouchableOpacity onPress={() => {
+                                    this.props.navigation.push('SelectLabelPage')
+                                }}>
+                                    <Text style={{ color: '#929FAD', fontSize: 12 }}>忘记密码？</Text>
+                                </TouchableOpacity>
                             </View>
                             <TouchableOpacity
                                 activeOpacity={0.8}
-                                onPress={()=>{
+                                onPress={() => {
                                     let data = { "FUserName": this.state.userName, "FAction": "APP", "FVersion": "1.0.0", "FPassword": md5.hex_md5(this.state.userPwd) }
                                     login(data)
                                 }}
@@ -170,12 +174,12 @@ class LoginPage extends React.Component {
                         <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: 20 }}>
                             <TouchableOpacity
                                 activeOpacity={0.8}
-                                style={{ height: 40, width: 40,backgroundColor: 'red', marginRight: 15,}}
-                                onPress={()=>{
-                                    ShareUtil.auth(2,(code,result,message) =>{
+                                style={{ height: 40, width: 40, backgroundColor: 'red', marginRight: 15, }}
+                                onPress={() => {
+                                    ShareUtil.auth(2, (code, result, message) => {
                                         // this.setState({result:message});
-                                        console.log('message',message)
-                                        if (code == 200){
+                                        console.log('message', message)
+                                        if (code == 200) {
                                             // this.setState({result:result.uid});
                                         }
                                     });
@@ -184,20 +188,20 @@ class LoginPage extends React.Component {
                             </TouchableOpacity>
                             <TouchableOpacity
                                 activeOpacity={0.8}
-                                style={{height: 40, width: 40, backgroundColor: 'red', marginLeft: 15,}}
-                                onPress={()=>{
-                                    ShareUtil.auth(0,(code,result,message) =>{
-                                        console.log('message',message)
+                                style={{ height: 40, width: 40, backgroundColor: 'red', marginLeft: 15, }}
+                                onPress={() => {
+                                    ShareUtil.auth(0, (code, result, message) => {
+                                        console.log('message', message)
                                         // this.setState({result:message});
-                                        if (code == 200){
+                                        if (code == 200) {
                                             // this.setState({result:result.uid});
                                         }
                                     });
                                 }}>
-                                <Image style={{ height: 40, width: 40}}></Image>
+                                <Image style={{ height: 40, width: 40 }}></Image>
                             </TouchableOpacity>
                         </View>
-                        <View style={{ alignItems: 'center', justifyContent:'center', flexDirection: 'row', marginTop: 30,marginBottom: 30 }}>
+                        <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: 30, marginBottom: 30 }}>
                             <Text style={{ color: '#929FAD', fontSize: 12 }}>登录注册表示阅读并同意本平台</Text>
                             <Text style={{ color: '#387BE6', fontSize: 12, marginLeft: 3 }}>《用户协议》</Text>
                         </View>
