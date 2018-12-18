@@ -22,6 +22,9 @@ const fadeAnimation = new SlideAnimation({ animationDuration: 150 });
 const NAV_BAR_HEIGHT_IOS = 44;
 const NAV_BAR_HEIGHT_ANDROID = 50;
 import SplashScreen from 'react-native-splash-screen'
+import LinearGradient from 'react-native-linear-gradient'
+import { screenW } from '../utils/ScreenUtil'
+import NavigationBar from '../components/NavigationBar'
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -117,36 +120,48 @@ class LoginPage extends React.Component {
             <View style={{ backgroundColor: 'white', flex: 1 }}>
                 <View >
                     <StatusBar barStyle='dark-content'
-                        hidden={false} backgroundColor="white" />
-                    <View style={[styles.inputContainer, { marginTop: 135 }]}>
-                        <Image style={styles.inputImg} source={require('../../img/login_name.png')}></Image>
-                        <TextInput autoCapitalize={'none'} value={this.state.userName} maxLength={30} style={styles.inputStyle} onChangeText={(text) => this.setState({
-                            userName: text
-                        })} underlineColorAndroid="transparent"></TextInput>
+                        translucent={true}
+                        hidden={false} backgroundColor="transparent" />
+                    <LinearGradient colors={['#52AFEA', '#3C61DE']} style={{ height: 240, width: screenW, alignItems: 'center' }}>
+                        <View style={{ height: 44, alignItems: 'center', justifyContent: 'center', marginTop: 25 }}>
+                            <Text style={{ color: 'white', fontSize: 16 }}>会员登录</Text>
+                        </View>
+                        <Image style={{ backgroundColor: 'red', height: 54, width: 54, marginTop: 20 }}></Image>
+                    </LinearGradient>
+                    <View style={{ width: screenW, marginTop: -48 }}>
+                        <View style={{ borderWidth: 1, borderColor: 'rgba(56,123,230,0.1)', alignItems: 'center', backgroundColor: 'white', borderRadius: 10, height: 315, marginLeft: 15, marginRight: 15 }}>
+                            <Text style={{ marginTop: 20, color: '#121C33', fontSize: 14, fontWeight: 'bold' }}>欢迎登录，家办联盟</Text>
+                            <TextInput autoCapitalize={'none'} value={this.state.userName} maxLength={30} style={styles.inputStyle} onChangeText={(text) => this.setState({
+                                userName: text
+                            })} underlineColorAndroid="transparent"></TextInput>
+                            <TextInput value={this.state.userPwd} secureTextEntry={true} maxLength={30} style={styles.inputStyle} onChangeText={(text) => this.setState({
+                                userPwd: text
+                            })} underlineColorAndroid="transparent"></TextInput>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: screenW - 56, marginTop: 20 }}>
+                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                    <Text style={{ color: '#929FAD', fontSize: 12 }}>还没有账号</Text>
+                                    <Text style={{ color: '#387BE6', fontSize: 12, marginLeft: 3 }}>去注册</Text>
+                                </View>
+                                <Text style={{ color: '#929FAD', fontSize: 12 }}>忘记密码？</Text>
+                            </View>
+                            <View style={{ marginTop: 30, justifyContent: 'center', width: screenW - 56, height: 46, borderRadius: 5, backgroundColor: '#387BE6', alignItems: 'center' }}>
+                                <Text style={{ fontSize: 14, color: 'white' }}>登录</Text>
+                            </View>
+                        </View>
+                        <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: 20 }}>
+                            <View style={{ height: 1, width: 30, backgroundColor: '#e5e5e5' }}></View>
+                            <Text style={{ color: '#929FAD', fontSize: 12, marginLeft: 20, marginRight: 20 }}>一键登录</Text>
+                            <View style={{ height: 1, width: 30, backgroundColor: '#e5e5e5' }}></View>
+                        </View>
+                        <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: 20 }}>
+                            <Image style={{ height: 40, width: 40, backgroundColor: 'red', marginRight: 15, }}></Image>
+                            <Image style={{ height: 40, width: 40, backgroundColor: 'red', marginLeft: 15 }}></Image>
+                        </View>
+                        <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: 30 }}>
+                            <Text style={{ color: '#929FAD', fontSize: 12 }}>登录注册表示阅读并同意本平台</Text>
+                            <Text style={{ color: '#387BE6', fontSize: 12, marginLeft: 3 }}>《用户协议》</Text>
+                        </View>
                     </View>
-                    <View style={[styles.inputContainer, { marginTop: 15 }]}>
-                        <Image style={styles.inputImg} source={require('../../img/login_pwd.png')}></Image>
-                        <TextInput value={this.state.userPwd} secureTextEntry={true} maxLength={30} style={styles.inputStyle} onChangeText={(text) => this.setState({
-                            userPwd: text
-                        })} underlineColorAndroid="transparent"></TextInput>
-                    </View>
-                    <TouchableOpacity
-                        activeOpacity={0.8}
-                        onPress={() => {
-                            let data = { "FUserName": this.state.userName, "FAction": "APP", "FVersion": "1.0.0", "FPassword": md5.hex_md5(this.state.userPwd) }
-                            console.log(JSON.stringify(data))
-                            login(data)
-
-                        }}
-                        style={[styles.inputContainer, { marginTop: 35, backgroundColor: '#0EAFF8', justifyContent: 'center' }]}>
-                        <Text style={styles.loginText}>登录</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={0.8} style={{ width: 60, alignSelf: 'center', marginTop: 14 }} onPress={() => {
-                        // this.props.navigation.push('MessageLogin')
-                    }}>
-                        {/* <Text style={{ color: 'transparent' }}>短信登录</Text> */}
-                    </TouchableOpacity>
-                    <Text style={styles.companyText}></Text>
                 </View >
                 <Loading />
                 <PopupDialog
@@ -198,8 +213,15 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     inputStyle: {
-        width: 300,
-        color: '#4E4E4E'
+        width: screenW - 56,
+        marginLeft: 13,
+        marginRight: 13,
+        color: '#4E4E4E',
+        backgroundColor: '#f8f8f8',
+        height: 46,
+        borderRadius: 5,
+        paddingLeft: 20,
+        marginTop: 20
     },
     inputImg: {
         marginLeft: 10

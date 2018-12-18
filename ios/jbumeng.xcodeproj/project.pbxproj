@@ -14,6 +14,8 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* jbumengTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* jbumengTests.m */; };
 		00FF2AD931864F8C84CEBC7A /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F38152A9F8B64F489B4CBC20 /* libRNVectorIcons.a */; };
+		042D851C21C5116A00AAED66 /* UMComponent in Resources */ = {isa = PBXBuildFile; fileRef = 042D84F121C5116A00AAED66 /* UMComponent */; };
+		049618D921C7DA85004DA9FB /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D1E14C21C2701700D21824 /* libBVLinearGradient.a */; };
 		0ED1E1B640354DFA88BF1242 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 593918C457E049A38852CCA7 /* Entypo.ttf */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -54,7 +56,6 @@
 		C213A7D121C34A12006CB04E /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D1E10E21C26EF200D21824 /* libSplashScreen.a */; };
 		C2D1E11021C26F1000D21824 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2D1E10F21C26F1000D21824 /* iconfont.ttf */; };
 		C6A86476C08042C7ABD73C85 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4BC337D168544EDACF9D939 /* FontAwesome5_Regular.ttf */; };
-		DF45E266C7A04D85A7850E15 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF5AFF4A630453DA9171341 /* libBVLinearGradient.a */; };
 		E9F70D3F44B94C28815D4B98 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F33290CD93149BBA7EDF052 /* MaterialIcons.ttf */; };
 		F0DA908B7AC14FA3B4921C8E /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ECDC9519BA8A46A78B417227 /* FontAwesome5_Solid.ttf */; };
 		FFEF8DB8BC7140598D86DC90 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAAA7ECBFCFD46ED8EB1D7E0 /* Ionicons.ttf */; };
@@ -381,6 +382,7 @@
 		00E356EE1AD99517003FC87E /* jbumengTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jbumengTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* jbumengTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jbumengTests.m; sourceTree = "<group>"; };
+		042D84F121C5116A00AAED66 /* UMComponent */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UMComponent; path = jbumeng/UMComponent; sourceTree = "<group>"; };
 		09596B26057F400A8DA56136 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C213A7D121C34A12006CB04E /* libSplashScreen.a in Frameworks */,
+				049618D921C7DA85004DA9FB /* libBVLinearGradient.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -450,7 +453,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				00FF2AD931864F8C84CEBC7A /* libRNVectorIcons.a in Frameworks */,
-				DF45E266C7A04D85A7850E15 /* libBVLinearGradient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +565,7 @@
 		13B07FAE1A68108700A75B9A /* jbumeng */ = {
 			isa = PBXGroup;
 			children = (
+				042D84F121C5116A00AAED66 /* UMComponent */,
 				C2D1E10F21C26F1000D21824 /* iconfont.ttf */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -1259,6 +1262,7 @@
 				9CA42210C7104F9D88430B5C /* Octicons.ttf in Resources */,
 				290D3D32303D40D484CD1C68 /* SimpleLineIcons.ttf in Resources */,
 				92DF4D0F69B74CE8AF69F271 /* Zocial.ttf in Resources */,
+				042D851C21C5116A00AAED66 /* UMComponent in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
