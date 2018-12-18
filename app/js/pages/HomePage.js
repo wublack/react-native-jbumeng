@@ -145,9 +145,12 @@ export default class HomePage extends React.Component {
         }
     }
     render() {
+        let leftButton=<View style={{flexDirection:'row'}}>
+            <Text>深圳</Text><Image />
+        </View>
         return (
             <View style={styles.container}>
-                <NavigationBar></NavigationBar>
+                <NavigationBar leftButton={leftButton} style={{backgroundColor:'white'}}></NavigationBar>
                 <ScrollView>
                     <Swiper style={styles.bannerSwiper} height={200} autoplay
                         onMomentumScrollEnd={(e, state, context) => console.log('index:', state.index)}
@@ -224,7 +227,7 @@ export default class HomePage extends React.Component {
                     <View style={styles.financialManagementSection}>
                         <SectionTitle title='精选理财项目'></SectionTitle>
                         <SecondShowMoreBean title='活期类'></SecondShowMoreBean>
-                        
+
                         <SecondShowMoreBean title='定期类'></SecondShowMoreBean>
                         <PeriodicalBean></PeriodicalBean>
                         <View style={{height:20}}></View>
@@ -263,7 +266,7 @@ export default class HomePage extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1, 
+        flex: 1,
         backgroundColor: 'white'
     },
 
@@ -306,12 +309,12 @@ const styles = StyleSheet.create({
         marginBottom: 25,
         borderRadius: 6
     },
-  
+
     massege: {
-        flexDirection: 'row', 
-        alignItems: 'center', 
-        padding: 10, 
-        margin: 15, 
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: 10,
+        margin: 15,
         backgroundColor: '#F8F8F8',
         borderRadius: 2
     },

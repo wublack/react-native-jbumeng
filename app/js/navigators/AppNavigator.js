@@ -2,10 +2,14 @@ import { createStackNavigator, createSwitchNavigator } from 'react-navigation'
 import React from 'react'
 import MainPage from '../pages/MainPage'
 import LoginPage from '../pages/LoginPage'
+import RegisterPage from '../pages/RegisterPage'
 
 const SwitchNavigate = createSwitchNavigator({
     LoginPage: {
         screen: LoginPage
+    },
+    RegisterPage:{
+      screen:RegisterPage
     },
     MainPage: {
         screen: MainPage
@@ -14,9 +18,15 @@ const SwitchNavigate = createSwitchNavigator({
         initialRouteName: 'LoginPage'
     })
 export default AppNavigator = createStackNavigator({
-    SwitchNavigate: {
-        screen: SwitchNavigate
-    }
+    LoginPage: {
+        screen: LoginPage
+    },
+    RegisterPage:{
+        screen:RegisterPage
+    },
+    MainPage: {
+        screen: MainPage
+    },
 }, {
         navigationOptions: {
             gesturesEnabled: true,

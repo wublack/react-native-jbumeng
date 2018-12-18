@@ -26,6 +26,7 @@ import SplashScreen from 'react-native-splash-screen'
 import LinearGradient from 'react-native-linear-gradient'
 import { screenW } from '../utils/ScreenUtil'
 import ShareUtil from '../utils/ShareUtil'
+import SafeAreaViewPlus from "../components/SafeAreaViewPlus";
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -118,7 +119,7 @@ class LoginPage extends React.Component {
     render() {
         const { login } = this.props
         return (
-            <View style={{ backgroundColor: 'white', flex: 1 }}>
+            <SafeAreaViewPlus style={{ backgroundColor: 'white', flex: 1 }}>
                 <ScrollView >
                     <StatusBar barStyle='dark-content'
                         translucent={true}
@@ -141,7 +142,13 @@ class LoginPage extends React.Component {
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: screenW - 56, marginTop: 20 }}>
                                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                     <Text style={{ color: '#929FAD', fontSize: 12 }}>还没有账号</Text>
-                                    <Text style={{ color: '#387BE6', fontSize: 12, marginLeft: 3 }}>去注册</Text>
+                                    <TouchableOpacity
+                                        activeOpacity={0.8}
+                                        onPress={()=>{
+                                            this.props.navigation.navigate('RegisterPage')
+                                        }}>
+                                        <Text style={{ color: '#387BE6', fontSize: 12, marginLeft: 3 }}>去注册</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <Text style={{ color: '#929FAD', fontSize: 12 }}>忘记密码？</Text>
                             </View>
@@ -214,7 +221,7 @@ class LoginPage extends React.Component {
                         </TouchableOpacity>
                     </View>
                 </PopupDialog>
-            </View>
+            </SafeAreaViewPlus>
         )
     }
 }
