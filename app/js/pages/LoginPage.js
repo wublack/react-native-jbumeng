@@ -144,9 +144,14 @@ class LoginPage extends React.Component {
                                 </View>
                                 <Text style={{ color: '#929FAD', fontSize: 12 }}>忘记密码？</Text>
                             </View>
-                            <View style={{ marginTop: 30, justifyContent: 'center', width: screenW - 56, height: 46, borderRadius: 5, backgroundColor: '#387BE6', alignItems: 'center' }}>
+                            <TouchableOpacity
+                                onPress={()=>{
+                                    let data = { "FUserName": this.state.userName, "FAction": "APP", "FVersion": "1.0.0", "FPassword": md5.hex_md5(this.state.userPwd) }
+                                    login(data)
+                                }}
+                                style={{ marginTop: 30, justifyContent: 'center', width: screenW - 56, height: 46, borderRadius: 5, backgroundColor: '#387BE6', alignItems: 'center' }}>
                                 <Text style={{ fontSize: 14, color: 'white' }}>登录</Text>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: 20 }}>
                             <View style={{ height: 1, width: 30, backgroundColor: '#e5e5e5' }}></View>
