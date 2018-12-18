@@ -21,7 +21,10 @@ export default class SelectLabelPage extends React.Component {
             <Text style={{ color: "#929FAD", fontSize: 16 }}>已有账号</Text>
         </View>
         return (
-            <SafeAreaViewPlus >
+            <SafeAreaViewPlus
+                bottomInset={false}
+                bottomColor={'#F8F8F8'}
+                topColor={'#F8F8F8'} >
                 <NavigationBar statusBar={{ hidden: false, barStyle: 'dark-content', translucent: false }} style={{ backgroundColor: '#F8F8F8' }} rightButton={rightButton} />
                 <ScrollView style={{ backgroundColor: '#F8F8F8' }}>
                     <Text style={{ marginLeft: 15, fontSize: 18, color: '#121C33', marginTop: 10, marginBottom: 10 }}>hi，初次见面</Text>
