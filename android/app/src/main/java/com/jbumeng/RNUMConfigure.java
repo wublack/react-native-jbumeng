@@ -16,6 +16,7 @@ public class RNUMConfigure {
     public static void init(Context context, String appkey, String channel, int type, String secret){
         initRN("react-native","1.0");
         UMConfigure.init(context,appkey,channel,type,secret);
+        UMConfigure.setLogEnabled(BuildConfig.DEBUG);
     }
     @TargetApi(VERSION_CODES.KITKAT)
     private static void initRN(String v, String t){

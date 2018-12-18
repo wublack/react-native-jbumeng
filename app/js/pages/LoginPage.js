@@ -7,7 +7,8 @@ import {
     StyleSheet,
     Platform,
     StatusBar,
-    TextInput
+    TextInput,
+    ScrollView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as loginAction from '../actions/loginAction'
@@ -24,7 +25,7 @@ const NAV_BAR_HEIGHT_ANDROID = 50;
 import SplashScreen from 'react-native-splash-screen'
 import LinearGradient from 'react-native-linear-gradient'
 import { screenW } from '../utils/ScreenUtil'
-import NavigationBar from '../components/NavigationBar'
+import ShareUtil from '../utils/ShareUtil'
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -118,7 +119,7 @@ class LoginPage extends React.Component {
         const { login } = this.props
         return (
             <View style={{ backgroundColor: 'white', flex: 1 }}>
-                <View >
+                <ScrollView >
                     <StatusBar barStyle='dark-content'
                         translucent={true}
                         hidden={false} backgroundColor="transparent" />
@@ -145,6 +146,7 @@ class LoginPage extends React.Component {
                                 <Text style={{ color: '#929FAD', fontSize: 12 }}>忘记密码？</Text>
                             </View>
                             <TouchableOpacity
+                                activeOpacity={0.8}
                                 onPress={()=>{
                                     let data = { "FUserName": this.state.userName, "FAction": "APP", "FVersion": "1.0.0", "FPassword": md5.hex_md5(this.state.userPwd) }
                                     login(data)
@@ -159,15 +161,41 @@ class LoginPage extends React.Component {
                             <View style={{ height: 1, width: 30, backgroundColor: '#e5e5e5' }}></View>
                         </View>
                         <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: 20 }}>
-                            <Image style={{ height: 40, width: 40, backgroundColor: 'red', marginRight: 15, }}></Image>
-                            <Image style={{ height: 40, width: 40, backgroundColor: 'red', marginLeft: 15 }}></Image>
+                            <TouchableOpacity
+                                activeOpacity={0.8}
+                                style={{ height: 40, width: 40,backgroundColor: 'red', marginRight: 15,}}
+                                onPress={()=>{
+                                    ShareUtil.auth(2,(code,result,message) =>{
+                                        // this.setState({result:message});
+                                        console.log('message',message)
+                                        if (code == 200){
+                                            // this.setState({result:result.uid});
+                                        }
+                                    });
+                                }}>
+                                <Image style={{ height: 40, width: 40 }}></Image>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                activeOpacity={0.8}
+                                style={{height: 40, width: 40, backgroundColor: 'red', marginLeft: 15,}}
+                                onPress={()=>{
+                                    ShareUtil.auth(0,(code,result,message) =>{
+                                        console.log('message',message)
+                                        // this.setState({result:message});
+                                        if (code == 200){
+                                            // this.setState({result:result.uid});
+                                        }
+                                    });
+                                }}>
+                                <Image style={{ height: 40, width: 40}}></Image>
+                            </TouchableOpacity>
                         </View>
-                        <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: 30 }}>
+                        <View style={{ alignItems: 'center', justifyContent:'center', flexDirection: 'row', marginTop: 30,marginBottom: 30 }}>
                             <Text style={{ color: '#929FAD', fontSize: 12 }}>登录注册表示阅读并同意本平台</Text>
                             <Text style={{ color: '#387BE6', fontSize: 12, marginLeft: 3 }}>《用户协议》</Text>
                         </View>
                     </View>
-                </View >
+                </ScrollView >
                 <Loading />
                 <PopupDialog
                     width={256}
