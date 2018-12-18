@@ -22,7 +22,7 @@ export default class SelectLabelPage extends React.Component {
         </View>
         return (
             <SafeAreaViewPlus >
-                <NavigationBar style={{ backgroundColor: '#F8F8F8' }} rightButton={rightButton} />
+                <NavigationBar statusBar={{ hidden: false, barStyle: 'dark-content', translucent: false }} style={{ backgroundColor: '#F8F8F8' }} rightButton={rightButton} />
                 <ScrollView style={{ backgroundColor: '#F8F8F8' }}>
                     <Text style={{ marginLeft: 15, fontSize: 18, color: '#121C33', marginTop: 10, marginBottom: 10 }}>hi，初次见面</Text>
                     <View style={{ marginLeft: 15, marginRight: 15, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 }}>
