@@ -74,8 +74,7 @@ export default class RegisterPage extends React.Component {
                         <TouchableOpacity
                             activeOpacity={0.8}
                             onPress={() => {
-                                let data = { "FUserName": this.state.userName, "FAction": "APP", "FVersion": "1.0.0", "FPassword": md5.hex_md5(this.state.userPwd) }
-                                login(data)
+                                this.props.navigation.push('SelectAddressPage')
                             }}
                             style={{ marginTop: 30, justifyContent: 'center', width: screenW - 56, height: 46, borderRadius: 5, backgroundColor: ColorUtils.default_backcolor, alignItems: 'center' }}>
                             <Text style={{ fontSize: 14, color: 'white' }}>注册</Text>
