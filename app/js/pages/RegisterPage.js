@@ -74,7 +74,9 @@ export default class RegisterPage extends React.Component {
                         <TouchableOpacity
                             activeOpacity={0.8}
                             onPress={() => {
-                                this.props.navigation.push('SelectAddressPage')
+                                // this.props.navigation.push('SelectLabelPage')
+                                this.props.navigation.push('IndustryPage')
+
                             }}
                             style={{ marginTop: 30, justifyContent: 'center', width: screenW - 56, height: 46, borderRadius: 5, backgroundColor: ColorUtils.default_backcolor, alignItems: 'center' }}>
                             <Text style={{ fontSize: 14, color: 'white' }}>注册</Text>

@@ -151,7 +151,7 @@ class LoginPage extends React.Component {
                                     </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity onPress={() => {
-                                    this.props.navigation.push('SelectLabelPage')
+                                    this.props.navigation.push('FindPwdPage')
                                 }}>
                                     <Text style={{ color: '#929FAD', fontSize: 12 }}>忘记密码？</Text>
                                 </TouchableOpacity>

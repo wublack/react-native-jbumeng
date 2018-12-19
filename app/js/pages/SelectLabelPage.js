@@ -4,7 +4,8 @@ import {
     Text,
     ScrollView,
     FlatList,
-    TouchableOpacity
+    TouchableOpacity,
+    DeviceInfo
 } from 'react-native';
 import SafeAreaViewPlus from '../components/SafeAreaViewPlus';
 import NavigationBar from '../components/NavigationBar';
@@ -61,7 +62,7 @@ export default class SelectLabelPage extends React.Component {
                         width: screenW - 56, height: 46, borderRadius: 5,
                         backgroundColor: '#387BE6', alignItems: 'center',
                         alignSelf: 'center',
-                        position: 'absolute', bottom: 20
+                        position: 'absolute', bottom: DeviceInfo.isIPhoneX_deprecated ? 40 : 20
                     }}>
                     <Text style={{ fontSize: 14, color: 'white' }}>选好了</Text>
                 </TouchableOpacity>
