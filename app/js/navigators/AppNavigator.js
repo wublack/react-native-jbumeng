@@ -4,6 +4,7 @@ import MainPage from '../pages/MainPage'
 import LoginPage from '../pages/LoginPage'
 import RegisterPage from '../pages/RegisterPage'
 import SelectLabelPage from '../pages/SelectLabelPage';
+import SeletAddressPage from "../pages/SeletAddressPage";
 
 const SwitchNavigate = createSwitchNavigator({
     LoginPage: {
@@ -30,7 +31,10 @@ export default AppNavigator = createStackNavigator({
     },
     SelectLabelPage: {
         screen: SelectLabelPage
-    }
+    },
+    SelectAddressPage:{
+        screen:SeletAddressPage
+    },
 }, {
         navigationOptions: {
             gesturesEnabled: true,

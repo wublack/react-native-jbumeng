@@ -143,6 +143,8 @@
   <string></string>
   <key>NSPhotoLibraryUsageDescription</key>
   <string></string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+    <string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>iconfont.ttf</string>

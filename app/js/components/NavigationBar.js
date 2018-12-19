@@ -10,6 +10,8 @@ import {
     View,
     ViewPropTypes
 } from 'react-native'
+import CommonStyle from "../utils/CommonStyle";
+import ColorUtils from "../utils/ColorUtils";
 const NAV_BAR_HEIGHT_IOS = 44
 const NAV_BAR_HEIGHT_ANDROID = 50
 const STATUS_BAR_HEIGHT = DeviceInfo.isIPhoneX_deprecated ? 0 : 20
@@ -100,8 +102,8 @@ const styles = StyleSheet.create({
         bottom: 0,
     },
     title: {
-        fontSize: 20,
-        color: '#000000',
+        fontSize: 16,
+        color: ColorUtils.default_black_color,
     },
     navBarButton: {
         alignItems: 'center',
