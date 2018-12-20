@@ -13,17 +13,17 @@ import SplashScreen from "react-native-splash-screen";
 import Geolocation from 'Geolocation'
 import FetchUtils from "../utils/FetchUtils";
 
-class AddressHeader extends React.Component{
-    constructor(props){
+class AddressHeader extends React.Component {
+    constructor(props) {
         super(props)
-        this.state={
+        this.state = {
             result: null
         }
     }
 
-    render(){
-        return(
-            <View style={[CommonStyle.horizontalCenterStyle,{marginLeft:15,marginRight:15}]}>
+    render() {
+        return (
+            <View style={[CommonStyle.horizontalBetweenStyle, { marginLeft: 15, marginRight: 15 }]}>
                 <View>
                     <Text>{this.state.result ? this.state.result.addressComponent.city : ''}</Text>
                 </View>
@@ -32,7 +32,7 @@ class AddressHeader extends React.Component{
         )
     }
 
-    componentDidMount(){
+    componentDidMount() {
         if (Platform.OS === 'android') {
             this.requestCameraPermission()
         } else {
@@ -55,9 +55,9 @@ class AddressHeader extends React.Component{
                             })
                         }
                     }).catch(err => {
-                    alert('err')
-                    console.log(JSON.stringify(err))
-                })
+                        alert('err')
+                        console.log(JSON.stringify(err))
+                    })
             }, error => {
                 alert('获取位置失败')
             }
@@ -86,8 +86,8 @@ class AddressHeader extends React.Component{
     }
 }
 
-export  default  class SeletAddressPage extends React.Component{
-    constructor(props){
+export default class SeletAddressPage extends React.Component {
+    constructor(props) {
         super(props)
     }
 
@@ -97,16 +97,16 @@ export  default  class SeletAddressPage extends React.Component{
         SplashScreen.hide();
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <SafeAreaViewPlus>
-                <NavigationBar style={{backgroundColor:'white'}} title={'选择所在地址'}/>
+                <NavigationBar style={{ backgroundColor: 'white' }} title={'选择所在地址'} />
                 <AddressHeader />
-                <Text style={[CommonStyle.smallGrayTextStyle,{marginLeft:15}]}>热门城市</Text>
+                <Text style={[CommonStyle.smallGrayTextStyle, { marginLeft: 15 }]}>热门城市</Text>
                 <FlatList
-                    data={['深圳','广州','北京','上海']}
-                    renderItem={(item)=>{
-                        return(
+                    data={['深圳', '广州', '北京', '上海']}
+                    renderItem={(item) => {
+                        return (
                             <Text style={[CommonStyle.blackTextStyle]}>{item.item}</Text>
                         )
                     }}

@@ -1,4 +1,4 @@
-import { createStackNavigator, createSwitchNavigator ,createDrawerNavigator} from 'react-navigation'
+import { createStackNavigator, createSwitchNavigator, createDrawerNavigator } from 'react-navigation'
 import React from 'react'
 import MainPage from '../pages/MainPage'
 import LoginPage from '../pages/LoginPage'
@@ -9,6 +9,7 @@ import FindPwdPage from '../pages/FindPwdPage';
 import IndustryPage from '../pages/IndustryPage';
 import ProjectList from "../pages/ProjectList";
 import CategoryPage from "../pages/CategoryPage";
+import { screenW } from '../utils/ScreenUtil';
 
 const SwitchNavigate = createSwitchNavigator({
     LoginPage: {
@@ -24,14 +25,15 @@ const SwitchNavigate = createSwitchNavigator({
         initialRouteName: 'LoginPage'
     })
 const DrawerNavigate = createDrawerNavigator({
-    ProjectList:{
-        screen:ProjectList
+    ProjectList: {
+        screen: ProjectList
     }
-},{
-    contentComponent:CategoryPage,
-    drawerPosition: "right",
-    drawerLockMode:"locked-closed"
-})
+}, {
+        contentComponent: CategoryPage,
+        drawerPosition: "right",
+        drawerLockMode: "locked-closed",
+        drawerWidth: screenW - 45
+    })
 
 export default AppNavigator = createStackNavigator({
     LoginPage: {
@@ -55,8 +57,8 @@ export default AppNavigator = createStackNavigator({
     IndustryPage: {
         screen: IndustryPage
     },
-    ProjectListCategory:{
-        screen:DrawerNavigate
+    ProjectListCategory: {
+        screen: DrawerNavigate
     }
 }, {
         navigationOptions: {

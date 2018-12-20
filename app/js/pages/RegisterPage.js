@@ -30,7 +30,7 @@ export default class RegisterPage extends React.Component {
                 bottomInset={false}
                 bottomColor={'white'}
                 topColor={'white'}>
-                <NavigationBar statusBar={{ hidden: false, barStyle: 'dark-content', translucent: false }} title={'用户注册'} style={{ backgroundColor: 'white' }} />
+                <NavigationBar statusBar={{ hidden: false, barStyle: 'light-content', translucent: false }} title={'用户注册'} style={{ backgroundColor: 'white' }} />
                 <View style={{ height: 1, width: screenW, backgroundColor: ColorUtils.divider_color }} />
                 <ScrollView style={{ backgroundColor: 'white' }}>
                     <View style={{ alignItems: 'center' }}>
