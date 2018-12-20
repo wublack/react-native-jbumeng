@@ -3,7 +3,7 @@ import {
     View,
     Text,
     ScrollView,
-    Image
+    Image, TouchableOpacity
 } from 'react-native';
 import SafeAreaViewPlus from '../components/SafeAreaViewPlus';
 import NavigationBar from '../components/NavigationBar';
@@ -29,7 +29,11 @@ export default class IndustryPage extends React.Component {
                     <Text style={{ marginLeft: 15, fontSize: 18, color: '#121C33', marginTop: 10, marginBottom: 10 }}>hi，初次见面</Text>
                     <View style={{ marginLeft: 15, marginRight: 15, flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 }}>
                         <Text style={{ color: '#929FAD', fontSize: 12 }}>选择你所属的行业和关注的领域</Text>
+                        <TouchableOpacity onPress={()=>{
+                            this.props.navigation.push("ProjectListCategory")
+                        }}>
                         <Text style={{ color: '#929FAD', fontSize: 12 }}>+自定义标签</Text>
+                        </TouchableOpacity>
                     </View>
                     <GridView
                         itemDimension={screenW / 3}
