@@ -5,7 +5,8 @@ import {
     StyleSheet,
     Dimensions,
     TouchableOpacity,
-    Navig
+    Button,
+    Alert
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { screenW } from "../utils/ScreenUtil";
@@ -35,6 +36,12 @@ export default class HomePage extends React.Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
+                <Button
+                    onPress={() => {
+                        Alert.alert("你点击了按钮！");
+                    }}
+                    title="点我！"
+                    />
                 <ScrollableTabView
                     initialPage={0}
                     style={{ backgroundColor: 'white', flex: 1, borderWidth: 0, borderColor: '#fff' }}

@@ -30,6 +30,24 @@ export default {
     blueTextStyle: {
         fontSize: 12,
         color: ColorUtils.default_backcolor
-    }
+    },
 
+    cellTitle: {
+        fontSize: 14,
+        color: '#121C33'
+    },
+    cellFlag: {
+        fontSize: 10,
+        color: '#387BE6',
+        backgroundColor: '#DFEAFC',
+        paddingLeft: 5,
+        paddingRight: 5,
+        paddingTop: 2,
+        paddingBottom: 2,
+        marginLeft: 10
+    },
+    cellDesc: {
+        fontSize: 12,
+        color: '#929FAD'
+    }
 }
